@@ -1,9 +1,11 @@
 'use strict';
 
-const gallery = document.querySelector('.gallery');
 const mainImage = document.querySelector('#largeImg');
+const thumbs = document.getElementById('thumbs');
 
-gallery.addEventListener('click', (e) => {
+thumbs.addEventListener('click', (e) => {
+  e.preventDefault();
+
   let target = e.target;
 
   if (target.tagName === 'IMG') {
