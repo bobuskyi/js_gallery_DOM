@@ -4,10 +4,13 @@ const gallery = document.querySelector('.gallery');
 const mainImage = document.querySelector('#largeImg');
 
 gallery.addEventListener('click', (e) => {
-  const eventTarget = e.target.closest('a');
+  let target = e.target;
 
-  if (eventTarget) {
-    e.preventDefault();
-    mainImage.setAttribute('src', eventTarget.href);
+  if (target.tagName === 'IMG') {
+    target = target.parentElement;
+  }
+
+  if (target.tagName === 'A') {
+    mainImage.src = target.href;
   }
 });
